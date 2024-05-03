@@ -79,7 +79,9 @@ class Agenda:
         if not encontrado:
             print("Contacto no encontrado.")
 
-    def eliminar_contacto(self, nombre):
+    def eliminar_contacto(self):
+        self.mostrar_contactos()
+        nombre = input("Ingrese el nombre del contacto que desea buscar: ")
         encontrado = False
         for contacto in self.contactos:
             if contacto.nombre.lower() == nombre.lower():
@@ -166,15 +168,12 @@ def main():
         elif opcion == '3':
             agenda.buscar_contacto()
         elif opcion == '4':
-            nombre = input("Ingrese el nombre del contacto que desea eliminar: ")
-            agenda.eliminar_contacto(nombre)
+            agenda.eliminar_contacto()
         elif opcion == '5':
             agenda.editar_contacto()
         elif opcion == '6':
             print("Saliendo del programa...")
             break
-        else:
-            print("Opción inválida. Por favor, ingrese un número del 1 al 6.")
-
+        
 if __name__ == "__main__":
     main()
